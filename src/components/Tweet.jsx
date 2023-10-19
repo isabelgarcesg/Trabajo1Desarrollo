@@ -6,7 +6,7 @@ function Tweet({ tweet }) {
             <img className="rounded-full" src={tweet.user.profileImage} alt={tweet.user.name} width="40" />
             <div>
                 <a className="font-bold hover:underline mr-2" href="#">{tweet.user.name}</a>
-                <a className="mr-2 text-gray-600" href="#">{tweet.user.username}</a>
+                <a className="mr-2 text-black" href="#">{tweet.user.username}</a>
                 <span className="text-gray-600">· {tweet.creationDate}</span>
 
                 <p className="mt-4">{tweet.text}</p>
