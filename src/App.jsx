@@ -1,7 +1,7 @@
 import './App.css'
-import Registros from './components/Tweet';
+import Registro from './components/Registros';
 
-const resgistros = [
+const registros = [
   {
     "_id": 1,
     "paraclinicos": "Frecuencia cardiaca: 80 bpm, Frecuencia respiratoria: 18 rpm, Temperatura: 37.2°C",
@@ -50,7 +50,7 @@ const resgistros = [
 ]
 
 function App() {
-  return tweets.map((tweet) => (<Tweet key={tweet._id} tweet={tweet} />))
+  return registros.map((registro) => (<Registro key={registro._id} registro={registro} />))
 }
 
 export default App
