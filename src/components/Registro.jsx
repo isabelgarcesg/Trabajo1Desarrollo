@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 function Registro({ registro }) {
+    const navigate = useNavigate();
     return (
         <tr className="border hover:bg-gray-50">
             <th className="border px-6 py-4">{registro.fecha.$date}</th>
@@ -56,7 +57,7 @@ function Registro({ registro }) {
                         </svg>
 
                     </a> */}
-                    <a x-data="{ tooltip: 'Edite' }" href="#">
+                        <a x-data="{ tooltip: 'Edite' }" onClick={() => navigate(`/registro/${registro._id}`)}> 
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -75,7 +76,6 @@ function Registro({ registro }) {
                 </div>
             </td>
         </tr>
-
 
 
     );

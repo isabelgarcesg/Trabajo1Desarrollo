@@ -2,18 +2,23 @@ import './App.css'
 import { Route, BrowserRouter, Routes } from 'react-router-dom'
 // import Registro from './components/Registro';
 import Historia from './views/historia';
+import Login from './views/Login';
 import RegistroView from './views/registro_info';
+import PrivateRoute from './components/PrivateRoute'
 
 
 
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<Historia />}></Route>
-      <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
-    </Routes>
-  </BrowserRouter>
+      <Routes>
+        <Route element={<PrivateRoute />}>
+          <Route path="/" element={<Historia />}></Route>
+          <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
+        </Route>
+        <Route path="/login" element={<Login />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

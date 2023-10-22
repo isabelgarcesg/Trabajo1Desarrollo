@@ -1,11 +1,5 @@
 import { useParams } from "react-router-dom";
-import Registro from "../components/Registro";
-
-
-
-
-
-
+// import Registro from "../components/Registro";
 
 function RegistroView() {
 

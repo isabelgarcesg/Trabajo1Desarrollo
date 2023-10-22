@@ -1,6 +1,8 @@
 import Registro from "../components/Registro";
+import { useAuth } from "../hooks/useAuth";
+import { useState } from "react";
 
-const registros = [
+const registros = [   
     {
         "_id": 1,
         "paraclinicos": "Frecuencia cardiaca: 80 bpm, Frecuencia respiratoria: 18 rpm, Temperatura: 37.2°C",
@@ -108,10 +110,10 @@ function Historia() {
                 <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <thead className="bg-gray-50">
                         <tr className="border">
-                            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Fecha</th>
-                            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Personal Asistencial</th>
-                            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Especialidad</th>
-                            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Acciones</th>
+                            <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Fecha</th>
+                            <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Personal Asistencial</th>
+                            <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Especialidad</th>
+                            <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Acciones</th>
 
                         </tr>
                     </thead>
