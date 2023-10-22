@@ -27,7 +27,8 @@ const registros = [
       "nombre": "Pedro Jesús Giraldo",
       "email": "jesusg@gmail.com",
       "doc_identidad": "4826109375",
-      "cargo": "Enfermero"
+      "cargo": "Enfermero",
+      "foto":"https://randomuser.me/api/portraits/men/78.jpg"
     },
     "especialidad": "Enfermería",
     "fecha": {
@@ -59,7 +60,8 @@ const registros = [
       "nombre": "Paulina González",
       "email": "mpaulina@gmail.com",
       "doc_identidad": "9876543210",
-      "cargo": "Enfermera"
+      "cargo": "Enfermera",
+      "foto":"https://randomuser.me/api/portraits/women/90.jpg"
     },
     "especialidad": "Enfermería",
     "fecha": {
@@ -90,7 +92,8 @@ const registros = [
       "nombre": "Francisco Arango",
       "email": "fa1990@hotmail.com",
       "doc_identidad": "2468135790",
-      "cargo": "Medico"
+      "cargo": "Medico",
+      "foto":"https://randomuser.me/api/portraits/men/74.jpg"
     },
     "especialidad": "Gastroenterología",
     "fecha": {
@@ -99,8 +102,54 @@ const registros = [
   },
 ]
 
+// function App() {
+//   return registros.map((registro) => (<Registro key={registro._id} registro={registro} />))
+// }
+
+// export default App
+
+// App.jsx
+
+// App.jsx
+
+
 function App() {
-  return registros.map((registro) => (<Registro key={registro._id} registro={registro} />))
+  return (
+    <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+      <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+        <thead className="bg-gray-50">
+          <tr  className="border">
+            {/* <th className="font-bold">Paraclínicos</th> */}
+            {/* <th className="font-bold">Evolución</th> */}
+            {/* <th className="font-bold">Procedimiento</th> */}
+            {/* <th className="font-bold">Descripción</th> */}
+            {/* <th className="font-bold">Medicamento</th> */}
+            {/* <th className="font-bold">Dosis</th> */}
+            {/* <th className="font-bold">Administración Vía</th> */}
+            {/* <th className="font-bold">Frecuencia</th> */}
+            {/* <th className="font-bold">Duración del Tratamiento</th> */}
+            {/* <th className="font-bold">Observaciones</th> */}
+            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Fecha</th>
+            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Personal Asistencial</th>
+            {/* <th className="font-bold">Nombre</th> */}
+            {/* <th className="font-bold">Correo</th> */}
+            {/* <th className="font-bold">Doc de Identidad</th> */}
+            {/* <th className="font-bold">Cargo</th> */}
+            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Especialidad</th>
+            <th scope="col" className="border px-6 py-4 font-medium text-gray-900">Acciones</th>
+            
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-100 border-t border-gray-100">
+          {registros.map((registro) => (
+            <Registro key={registro._id} registro={registro} />
+          ))}
+
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
-export default App
+export default App;
+
