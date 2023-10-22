@@ -22,7 +22,7 @@ const registros = [
         },
         "personal": {
             "_id": 10,
-            "tipo_id": "cedula",
+            "tipo_id": "Cedula",
             "nombre": "Pedro Jesús Giraldo",
             "email": "jesusg@gmail.com",
             "doc_identidad": "4826109375",
@@ -55,7 +55,7 @@ const registros = [
         },
         "personal": {
             "_id": 2,
-            "tipo_id": "cedula",
+            "tipo_id": "Cedula",
             "nombre": "Paulina González",
             "email": "mpaulina@gmail.com",
             "doc_identidad": "9876543210",
@@ -87,7 +87,7 @@ const registros = [
         },
         "personal": {
             "_id": 3,
-            "tipo_id": "cedula",
+            "tipo_id": "Cedula",
             "nombre": "Francisco Arango",
             "email": "fa1990@hotmail.com",
             "doc_identidad": "2468135790",
