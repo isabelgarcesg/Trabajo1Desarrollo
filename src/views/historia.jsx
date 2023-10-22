@@ -104,6 +104,7 @@ const registros = [
 ]
 
 function Historia() {
+    const { logout } = useAuth();
     return (
         <>
             <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -125,6 +126,7 @@ function Historia() {
                     </tbody>
                 </table>
             </div>
+            <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={logout}>Log out</button>
         </>
     )
 }
