@@ -1,0 +1,33 @@
+{
+  "pacientes": [
+    {
+      "nombre": "paulina",
+      "edad": "22",
+      "tipo_id": "cedula",
+      "grupo_sanguine": "",
+      "direccion": "calle 9 sur",
+      "email": "paulina@hotmail.com",
+      "fecha_nacimiento": "2012-10-09",
+      "doc_identidad": "1000400500",
+      "grupo_sanguineo": "O-",
+      "genero": "Femenino",
+      "celular": "305204111",
+      "eps": "sura",
+      "id": 1
+    },
+    {
+      "nombre": "emiliano",
+      "edad": "24",
+      "tipo_id": "cedula",
+      "grupo_sanguineo": "B+",
+      "genero": "Masculino",
+      "celular": "310111111",
+      "eps": "sura",
+      "direccion": "calle 8",
+      "email": "emiliano@hotmail.com",
+      "fecha_nacimiento": "2023-10-04",
+      "doc_identidad": "12323244",
+      "id": 2
+    }
+  ]
+}

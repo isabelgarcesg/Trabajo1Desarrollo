@@ -127,6 +127,7 @@ function Historia() {
                 </table>
             </div>
             <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={logout}>Log out</button>
+            <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate('/Paciente')}>Crear Paciente</button>
         </>
     )
 }

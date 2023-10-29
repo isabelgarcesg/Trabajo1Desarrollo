@@ -5,6 +5,8 @@ import Historia from './views/historia';
 import Login from './views/Login';
 import RegistroView from './views/registro_info';
 import PrivateRoute from './components/PrivateRoute'
+import CrearPaciente from './views/crearPaciente'
+
 
 
 
@@ -17,6 +19,7 @@ function App() {
           <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
         </Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/Paciente" element={<CrearPaciente />}></Route>
       </Routes>
     </BrowserRouter>
   );
