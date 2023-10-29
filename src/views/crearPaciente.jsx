@@ -38,7 +38,12 @@ function CrearPaciente() {
     }
 
     return (
+
         <form method="post" onSubmit={handleSubmit(handleRegister)}>
+            <div style={{ textAlign: 'center' }}>
+                <h4 style={{ fontWeight: 'bold' }}>Crear Paciente</h4>
+            </div>
+
             <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                 <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
@@ -173,7 +178,7 @@ function CrearPaciente() {
                             <option value="Femenino">Femenino</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Indenifido">Indefinido</option>
-    
+
                         </select>
                         {errors.genero && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
