@@ -305,13 +305,35 @@ function Register({ onSave }) {
             </label>
             <div className="relative">
 
-            <select
+              <select
                 className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
                 id="Medicamento"
                 {...register("Medicamento", { required: true })}
-                onChange={(nombre) => setnombreMedi(nombre.target.value)} value={nombreMedicamento}
-                // onChange={(dosis) => setDosis(dosis.target.value)} value={dosis}
+                onChange={(event) => {
+                  const selectedMedicamento = medicamento.find(med => med.nombre === event.target.value);
+                  if (selectedMedicamento) {
+                    setMedID(selectedMedicamento._id);
+                    setnombreMedi(selectedMedicamento.nombre);
+                    setDosis(selectedMedicamento.dosis);
+                    setVia(selectedMedicamento.via);
+                    setFrec(selectedMedicamento.frecuencia_dia);
+                    setDuracion(selectedMedicamento.duracion_dias);
+                    setObservaciones(selectedMedicamento.observaciones);
+                    console.log (selectedMedicamento);
+                  } 
+                  else {
+                    // Si no se selecciona ningún medicamento o no se encuentra en la lista, puedes restablecer los valores a su estado inicial
+                    setMedID("");
+                    setnombreMedi("");
+                    setDosis("");
+                    setVia("");
+                    setFrec("");
+                    setDuracion("");
+                    setObservaciones("");
+                  }
 
+                }}
+                value={nombreMedicamento}
               >
                 <option value="">Seleccione un medicamento</option>
                 {medicamento.map(med => (
@@ -333,17 +355,32 @@ function Register({ onSave }) {
             </label>
             <div className="relative">
 
-              <select className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded" 
-              id="Procedimiento"
-              {...register("Procedimiento", { required: true })}
+            <select
+                className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                id="Procedimiento"
+                {...register("Procedimiento", { required: true })}
+                onChange={(event) => {
+                  const selectedProcedimiento = procedimientos.find(proc => proc.nombre === event.target.value);
+                  if (selectedProcedimiento) {
+                    setProID(selectedProcedimiento._id);
+                    setnombrePro(selectedProcedimiento.nombre);
+                    setdesc(selectedProcedimiento.descripcion);
+                    console.log (selectedProcedimiento);
+                  } else {
+                    // Si no se selecciona ningún procedimiento o no se encuentra en la lista, puedes restablecer los valores a su estado inicial
+                    setProID("");
+                    setnombrePro("");
+                    setdesc("");
+                  }
+                }}
+                value={nombrePro}
               >
                 <option value="">Seleccione un procedimiento</option>
                 {procedimientos.map(proc => (
                   <option key={proc._id} value={proc.nombre}>{proc.nombre}</option>
                 ))}
-                {errors.Procedimiento && <p className="text-red-500 mt-1">Campo requerido</p>}
-
               </select>
+              {errors.Procedimiento && <p className="text-red-500 mt-1">Campo requerido</p>}
               <div className="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
                 <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
