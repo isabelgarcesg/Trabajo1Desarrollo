@@ -1,7 +1,7 @@
 import Registro from "../components/Registro";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
-
+import { useNavigate } from 'react-router-dom';
 const registros = [   
     {
         "_id": 1,
@@ -105,6 +105,7 @@ const registros = [
 
 function Historia() {
     const { logout } = useAuth();
+    const navigate = useNavigate();
     return (
         <>
             <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">

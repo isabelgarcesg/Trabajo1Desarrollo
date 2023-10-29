@@ -18,10 +18,11 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Historia />}></Route>
           <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
+          <Route path="/Paciente" element={<CrearPaciente />}></Route>
+        <Route path="/ListarPacientes" element={<Paciente />}></Route>
         </Route>
         <Route path="/login" element={<Login />}></Route>
-        <Route path="/Paciente" element={<CrearPaciente />}></Route>
-        <Route path="/ListarPacientes" element={<Paciente />}></Route>
+
       </Routes>
     </BrowserRouter>
   );

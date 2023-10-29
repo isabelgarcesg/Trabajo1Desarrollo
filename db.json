@@ -42,6 +42,34 @@
       "fecha_nacimiento": "2023-10-18",
       "doc_identidad": "123456",
       "id": 3
+    },
+    {
+      "nombre": "prueba",
+      "tipo_id": "cedula",
+      "doc_identidad": "1012112",
+      "direccion": "call 6",
+      "celular": "243",
+      "email": "paulina@paulina.com",
+      "eps": "sura",
+      "grupo_sanguineo": "O+",
+      "genero": "femenino",
+      "edad": "22",
+      "fecha_nacimiento": "2023-10-04",
+      "id": 4
+    },
+    {
+      "nombre": "rgszrg",
+      "tipo_id": "ffb",
+      "doc_identidad": "fgg",
+      "direccion": "fsdzf",
+      "celular": "dfgf",
+      "email": "dgfg@oind.com",
+      "eps": "Comeva",
+      "grupo_sanguineo": "gsrg",
+      "genero": "gfdbsrg",
+      "edad": "hg",
+      "fecha_nacimiento": "2023-10-02",
+      "id": 5
     }
   ]
 }

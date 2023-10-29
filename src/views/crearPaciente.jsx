@@ -38,153 +38,176 @@ function CrearPaciente() {
     }
 
     return (
-        <div className="w-screen h-screen flex justify-center items-center">
-            <div className="p-4">
-                <h2 className="mb-4 font-bold text-2xl">Crear Paciente</h2>
-                <form className="flex flex-col items-center" method="post" onSubmit={handleSubmit(handleRegister)}>
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
+        <form method="post" onSubmit={handleSubmit(handleRegister)}>
+            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+                <div className="-mx-3 md:flex mb-6">
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                            Nombre
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
                             type="text"
                             name="nombre"
                             id="nombre"
                             placeholder="Nombre"
                             {...register('nombre', { required: true })}
-                        />
-                        {errors.nombre && <p className="text-red-500 mt-1">Complete el campo</p>}
+                        /> {errors.nombre && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
-
-                    {/* NEW INFO */}
-
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
-                            type="text"
-                            name="edad"
-                            id="edad"
-                            placeholder="edad"
-                            {...register('edad', { required: true })}
-                        />
-                        {errors.edad && <p className="text-red-500 mt-1">Complete el campo</p>}
-                    </div>
-
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
-                            type="text"
+                    <div className="md:w-1/2 px-3">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
+                            Tipo de documento
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text"
                             name="tipo_id"
                             id="tipo_id"
-                            placeholder="tipo_id"
-                            {...register('tipo_id', { required: true })}
-                        />
-                        {errors.tipo_id && <p className="text-red-500 mt-1">Complete el campo</p>}
+                            placeholder="Tipo de documento"
+                            {...register('tipo_id', { required: true })} /> {errors.tipo_id && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                            Número de documento
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
                             type="text"
-                            name="grupo_sanguineo"
-                            id="grupo_sanguineo"
-                            placeholder="grupo_sanguineo"
-                            {...register('grupo_sanguineo', { required: true })}
-                        />
-                        {errors.grupo_sanguineo && <p className="text-red-500 mt-1">Complete el campo</p>}
+                            name="doc_identidad"
+                            id="doc_identidad"
+                            placeholder="Documento de identidad"
+                            {...register('doc_identidad')} />{errors.doc_identidad && <p className="text-red-500 mt-1">Complete el campo</p>}
+
                     </div>
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
+                </div>
+                <div className="-mx-3 md:flex mb-2">
+
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
+                            Dirección
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                             type="text"
-                            name="genero"
-                            id="genero"
-                            placeholder="genero"
-                            {...register('genero', { required: true })}
-                        />
-                        {errors.genero && <p className="text-red-500 mt-1">Complete el campo</p>}
+                            name="direccion"
+                            id="direccion"
+                            placeholder="Direccion"
+                            {...register('direccion', { required: true })} />  {errors.direccion && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
+                    <div className="md:w-1/2 px-3">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                            Celular
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                             type="text"
                             name="celular"
                             id="celular"
-                            placeholder="celular"
-                            {...register('celular', { required: true })}
-                        />
-                        {errors.celular && <p className="text-red-500 mt-1">Complete el campo</p>}
+                            placeholder="Número de celular"
+                            {...register('celular', { required: true })} /> {errors.celular && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
-                            type="text"
+                    <div className="md:w-1/2 px-3 ">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                            Correo
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
+                            type="email"
+                            name="email"
+                            id="email"
+                            placeholder="Correo electrónico"
+                            {...register('email', { required: true, pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ })} />{errors.email?.type === 'required' && <p className="text-red-500 mt-1">Email is required</p>}
+                        {errors.email?.type === 'pattern' && <p className="text-red-500 mt-1">Please enter a valid email</p>}
+                    </div>
+                </div>
+                <div> <br /></div>
+                <div className="-mx-3 md:flex mb-2">
+
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="eps">
+                            EPS
+                        </label>
+                        <select
+                            className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
                             name="eps"
                             id="eps"
-                            placeholder="eps"
                             {...register('eps', { required: true })}
-                        />
+                        >
+                            <option value="">Seleccione una EPS</option>
+                            <option value="Sura">Sura</option>
+                            <option value="Comeva">Comeva</option>
+                            <option value="Nueva EPS">Nueva EPS</option>
+                            <option value="Savia Salud">Savia Salud</option>
+                        </select>
                         {errors.eps && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
 
 
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="eps">
+                            Grupo sanguineo
+                        </label>
+                        <select
+                            className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                            name="grupo_sanguineo"
+                            id="grupo_sanguineo"
+                            {...register('grupo_sanguineo', { required: true })}
+                        >
+                            <option value="">Seleccione el grupo sanguineo</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                        {errors.grupo_sanguineo && <p className="text-red-500 mt-1">Complete el campo</p>}
+                    </div>
 
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="eps">
+                            Género
+                        </label>
+                        <select
+                            className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
+                            name="genero"
+                            id="genero"
+                            {...register('genero', { required: true })}
+                        >
+                            <option value="">Seleccione una EPS</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Indenifido">Indefinido</option>
+    
+                        </select>
+                        {errors.genero && <p className="text-red-500 mt-1">Complete el campo</p>}
+                    </div>
 
-
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
+                </div>
+                <div> <br /> </div>
+                <div className="-mx-3 md:flex mb-2">
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                            Edad
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
                             type="text"
-                            name="direccion"
-                            id="direccion"
-                            placeholder="direccion"
-                            {...register('direccion', { required: true })}
-                        />
-                        {errors.direccion && <p className="text-red-500 mt-1">Complete el campo</p>}
+                            name="edad"
+                            id="edad"
+                            placeholder="Edad"
+                            {...register('edad', { required: true })} /> {errors.edad && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
-                    <div className="mb-4 w-full">
-                        <input
-                            className="rounded-md p-2 text-black w-full"
-                            type="email"
-                            name="email"
-                            id="email"
-                            placeholder="Email"
-                            {...register('email', { required: true, pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/ })}
-                        />
-                        {errors.email?.type === 'required' && <p className="text-red-500 mt-1">Email is required</p>}
-                        {errors.email?.type === 'pattern' && <p className="text-red-500 mt-1">Please enter a valid email</p>}
+                    <div className="md:w-1/2 px-3">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                            Fecha de nacimiento
+                        </label>
+                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
+                            type="date"
+                            name="fecha_nacimiento"
+                            id="fecha_nacimiento"
+                            placeholder="Fecha de nacimiento"
+                            {...register('fecha_nacimiento')} /> {errors.fecha_nacimiento && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
-                    <input
-                        className="mb-4 rounded-md p-2 text-black w-full"
-                        type="date"
-                        name="fecha_nacimiento"
-                        id="fecha_nacimiento"
-                        placeholder="Fecha de nacimiento"
-                        {...register('fecha_nacimiento')}
-                    />
-                    <input
-                        className="mb-4 rounded-md p-2 text-black w-full"
-                        type="text"
-                        name="doc_identidad"
-                        id="doc_identidad"
-                        placeholder="Documento de identidad"
-                        {...register('doc_identidad')}
-                    />
-                    {/* <div>
-                        <input
-                            className="mb-4 rounded-md p-2 text-black mr-2"
-                            type="checkbox"
-                            name="terms"
-                            id="terms"
-                            {...register('terms')}
-                        />
-                        <label htmlFor="terms">Accept the terms of the service</label>
-                    </div> */}
-
-                    <button className="bg-sky-500 py-2 px-4 rounded-full w-full mb-4" type="submit">
-                        Crear
-                    </button>
-                    {/* <Link className="hover:underline" to="/login">Sign In</Link> */}
-                </form>
+                </div>
+                <div><br /></div>
+                <button className="bg-sky-300 py-2 px-4 rounded-full w-1/4 mb-4" type="submit">Crear Paciente</button>
             </div>
-        </div>
+        </form>
     );
 }
 
