@@ -5,6 +5,7 @@ import Historia from './views/historia';
 import Login from './views/Login';
 import RegistroView from './views/registro_info';
 import PrivateRoute from './components/PrivateRoute'
+import ListarPacientes from './views/ListarPacientes'
 
 
 
