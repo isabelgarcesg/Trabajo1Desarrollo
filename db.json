@@ -28,6 +28,20 @@
       "fecha_nacimiento": "2023-10-04",
       "doc_identidad": "12323244",
       "id": 2
+    },
+    {
+      "nombre": "Emiliano",
+      "edad": "18",
+      "tipo_id": "123456",
+      "grupo_sanguineo": "B+",
+      "genero": "M",
+      "celular": "122343453",
+      "eps": "1233454",
+      "direccion": "calle x",
+      "email": "emiliano@emi.com",
+      "fecha_nacimiento": "2023-10-18",
+      "doc_identidad": "123456",
+      "id": 3
     }
   ]
 }

@@ -45,6 +45,7 @@ function Login() {
         <input className="mb-4 rounded-md p-3 text-black" type="password" name="password" id="password" placeholder="Password" />
         <button className="bg-slate-100 py-3 px-6 rounded-full" type="submit">Sing in</button>
         <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate('/Paciente')}>Crear Paciente</button>
+        <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate('/ListarPacientes')}>Listar pacientes</button>
       </form>
     </div>
   </div>

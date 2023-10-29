@@ -6,6 +6,7 @@ import Login from './views/Login';
 import RegistroView from './views/registro_info';
 import PrivateRoute from './components/PrivateRoute'
 import CrearPaciente from './views/crearPaciente'
+import Paciente from './views/ListarPacientes'
 
 
 
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/Paciente" element={<CrearPaciente />}></Route>
+        <Route path="/ListarPacientes" element={<Paciente />}></Route>
       </Routes>
     </BrowserRouter>
   );
