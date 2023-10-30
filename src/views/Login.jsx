@@ -12,7 +12,7 @@ function Login() {
     const { user, login } = useAuth(); 
 
     if (user) {
-        return (<Navigate to="/" />);
+        return (<Navigate to="/ListarPacientes" />);
     }
 
     function handleSubmit(e) {
@@ -28,7 +28,7 @@ function Login() {
         if (loginObject.username === USER.username && loginObject.password === USER.password) {
             // login exitoso
             login(loginObject.username)
-            navigate('/');
+            navigate('/ListarPacientes');
         } else {
             // el login falló
         }
@@ -44,8 +44,6 @@ function Login() {
         <input className="mb-4 rounded-md p-3 text-black" type="text" name="username" id="username" placeholder="Username" />
         <input className="mb-4 rounded-md p-3 text-black" type="password" name="password" id="password" placeholder="Password" />
         <button className="bg-slate-100 py-3 px-6 rounded-full" type="submit">Sing in</button>
-        <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate('/Paciente')}>Crear Paciente</button>
-        <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate('/ListarPacientes')}>Listar pacientes</button>
       </form>
     </div>
   </div>
