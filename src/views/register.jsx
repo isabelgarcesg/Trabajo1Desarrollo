@@ -2,14 +2,21 @@
 // import { useAuth } from "../hooks/useAuth";
 import { useForm } from 'react-hook-form';
 import { useState } from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 function Register({ onSave }) {
+  const { user } = useContext(AuthContext);
   // const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const ahora = new Date();
+  const offset = ahora.getTimezoneOffset() * 60000; // Ajusta la zona horaria
+  const fechaActual = new Date(ahora - offset).toISOString().substr(0, 10);
 
   const [_id, setId] = useState("");
   const [paraclinicos, setPara] = useState("");
@@ -24,15 +31,17 @@ function Register({ onSave }) {
   const [frecuencia_dia, setFrec] = useState("");
   const [duracion_dias, setDuracion] = useState("");
   const [observaciones, setObservaciones] = useState("");
-  const [personalId, setPersID] = useState("");
-  const [tipo_id, setTipo] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [email, setEmail] = useState("");
-  const [doc_identidad, setDoc] = useState("");
-  const [cargo, setCargo] = useState("");
-  const [foto, setFoto] = useState("");
+  const [personalId, setPersID] = useState(user._id);
+  const [tipo_id, setTipo] = useState(user.tipo_id);
+  const [nombre, setNombre] = useState(user.nombre);
+  const [email, setEmail] = useState(user.email);
+  const [doc_identidad, setDoc] = useState(user.doc_identidad);
+  const [cargo, setCargo] = useState(user.cargo);
+  const [foto, setFoto] = useState(user.foto);
+  const [User,setUser] = useState(user.usuario);
+  const [password,setPass] = useState(user.password);
   const [especialidad, setEspe] = useState("");
-  const [fecha, setfecha] = useState("");
+  const [fecha, setfecha] = useState(fechaActual);
 
 
   const registro = {
@@ -65,7 +74,9 @@ function Register({ onSave }) {
       email,
       doc_identidad,
       cargo,
-      foto
+      foto,
+      User,
+      password
     },
 
     especialidad,
@@ -148,55 +159,8 @@ function Register({ onSave }) {
     }
   ]
 
-  const personal = [
-    {
-      "_id": 10,
-      "tipo_id": "Cedula",
-      "nombre": "Pedro Jesús Giraldo",
-      "email": "jesusg@gmail.com",
-      "doc_identidad": "4826109375",
-      "cargo": "Enfermero",
-      "foto": "https://randomuser.me/api/portraits/men/78.jpg"
-    },
-    {
-      "_id": 2,
-      "tipo_id": "Cedula",
-      "nombre": "Paulina González",
-      "email": "mpaulina@gmail.com",
-      "doc_identidad": "9876543210",
-      "cargo": "Enfermera",
-      "foto": "https://randomuser.me/api/portraits/women/90.jpg"
-    },
-    {
-      "_id": 3,
-      "tipo_id": "Cedula",
-      "nombre": "Francisco Arango",
-      "email": "fa1990@hotmail.com",
-      "doc_identidad": "2468135790",
-      "cargo": "Medico",
-      "foto": "https://randomuser.me/api/portraits/men/74.jpg"
-    },
-    {
-      "_id": 4,
-      "tipo_id": "cedula",
-      "nombre": "José Gallego",
-      "email": "joseg86@gmail.com",
-      "doc_identidad": "1357924680",
-      "cargo": "Enfermero",
-      "foto": "https://randomuser.me/api/portraits/men/2.jpg"
-    },
-    {
-      "_id": 5,
-      "tipo_id": "cedula",
-      "nombre": "Luisa María Cadena",
-      "email": "lmcadena@gmail.com",
-      "doc_identidad": "3147258960",
-      "cargo": "Enfermera",
-      "foto": "https://randomuser.me/api/portraits/women/10.jpg"
-    }
-  ]
-
   const save = (registro) => {
+    console.log("Registro a guardar:", registro);
     // onSave(registro);
     setId("");
     setPara("");
@@ -211,20 +175,20 @@ function Register({ onSave }) {
     setVia("");
     setDuracion("");
     setObservaciones("");
-    setPersID("");
-    setTipo("");
-    setNombre("");
-    setEmail("");
-    setDoc("");
-    setCargo("");
-    setFoto("");
+    setPersID(user._id);
+    setTipo(user.tipo_id);
+    setNombre(user.nombre);
+    setEmail(user.email);
+    setDoc(user.doc_identidad);
+    setCargo(user.cargo);
+    setFoto(user.foto);
+    setPass(user.password)
+    setUser(user.usuario)
     setEspe("");
-    setfecha("");
+    setfecha(fechaActual);
   };
 
-  const ahora = new Date();
-  const offset = ahora.getTimezoneOffset() * 60000; // Ajusta la zona horaria
-  const fechaActual = new Date(ahora - offset).toISOString().substr(0, 10);
+  
 
   // function CrearRegistro({ onSave }) {
   //   console.log(value);
@@ -247,6 +211,7 @@ function Register({ onSave }) {
               placeholder="Especialidad del servicio"
               name="Especialidad"
               {...register("Especialidad", { required: true })}
+              onChange={(event) => setEspe(event.target.value)} value={especialidad}
             />
             {errors.Especialidad && <p className="text-red-500 mt-1">Campo requerido</p>}
           </div>
@@ -262,6 +227,8 @@ function Register({ onSave }) {
             name="Fecha"
             defaultValue={fechaActual}
             readOnly
+            {...register("Fecha", { required: true })}
+            
           />
           </div>
 
@@ -293,8 +260,10 @@ function Register({ onSave }) {
             placeholder="Ingresar la evolución del paciente"
             name="Evolucion"
             {...register("Evolucion", { required: true })}
+            onChange={(event) => setEvo(event.target.value)} value={evolucion}
           />
           {errors.Evolucion && <p className="text-red-500 mt-1">Campo requerido</p>}
+          
         </div>
 
         <div className="-mx-3 md:flex mb-2">
@@ -389,7 +358,15 @@ function Register({ onSave }) {
           </div>
 
         </div>
-        <button className="bg-sky-500 py-2 px-4 rounded-full w-full mt-10" type="submit">Enviar</button>
+        <button disabled={!especialidad || !paraclinicos || !evolucion || !medicamentoId || !nombreMedicamento ||
+      !dosis||
+      !via||
+      !frecuencia_dia||
+      !duracion_dias||
+      !observaciones ||
+      !procedimientoId||
+      !nombrePro||
+      !descripcion}  className="bg-sky-500 py-2 px-4 rounded-full w-full mt-10 " onClick={() => save(registro)}  type="submit">Enviar</button>
       </form>
     </div>
   );
