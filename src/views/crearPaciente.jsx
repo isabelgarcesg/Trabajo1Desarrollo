@@ -42,7 +42,7 @@ function CrearPaciente() {
 
         <form id="miFormulario" method="post" onSubmit={handleSubmit(handleRegister)}>
             <div style={{ textAlign: 'center' }}>
-                <h4 style={{ fontWeight: 'bold' }}>Crear Paciente</h4>
+                <h4  className="font-bold p-6 text-lg text-center" style={{ fontWeight: 'bold' }}>Crear Paciente</h4>
             </div>
 
             <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
@@ -220,7 +220,8 @@ function CrearPaciente() {
                     </div>
                 </div>
                 <div><br /></div>
-                <button className="bg-sky-300 py-2 px-4 lg:hover:bg-gray-400 rounded-full w-1/4 mb-4" type="submit" form="miFormulario" >Crear Paciente</button>
+                <button className="bg-gray-300 py-2 px-4 lg:hover:bg-gray-400 rounded-full w-1/4 mb-4" type="submit" form="miFormulario" >Crear Paciente</button>
+                
             </div>
         </form>
     );
