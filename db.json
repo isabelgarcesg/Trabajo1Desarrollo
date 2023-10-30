@@ -30,13 +30,13 @@
       "id": 2
     },
     {
-      "nombre": "Emiliano",
+      "nombre": "Emiliano Zapata Ortiz",
       "edad": "18",
-      "tipo_id": "123456",
+      "tipo_id": "Cedula",
       "grupo_sanguineo": "B+",
       "genero": "M",
       "celular": "122343453",
-      "eps": "1233454",
+      "eps": "Sura",
       "direccion": "calle x",
       "email": "emiliano@emi.com",
       "fecha_nacimiento": "2023-10-18",
