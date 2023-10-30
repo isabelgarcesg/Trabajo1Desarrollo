@@ -1,6 +1,10 @@
+import { Navigate, useNavigate, Link } from "react-router-dom";
 import Registro from "../components/Registro";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
+
+
+
 
 const registros = [   
     {
@@ -104,6 +108,7 @@ const registros = [
 ]
 
 function Historia() {
+    const navigate = useNavigate();
     const { logout } = useAuth();
     return (
         <>
@@ -127,6 +132,7 @@ function Historia() {
                 </table>
             </div>
             <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={logout}>Log out</button>
+            <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate("/crearRegistro")}>Crear nuevo registro</button>
         </>
     )
 }
