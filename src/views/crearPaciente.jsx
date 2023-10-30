@@ -29,6 +29,7 @@ function CrearPaciente() {
             .then((res) => res.json())
             .then((user) => {
                 console.log(user)
+                navigate('/ListarPacientes')
                 // login(user.id);
                 // navigate("/login");
             })
@@ -39,7 +40,7 @@ function CrearPaciente() {
 
     return (
 
-        <form method="post" onSubmit={handleSubmit(handleRegister)}>
+        <form id="miFormulario" method="post" onSubmit={handleSubmit(handleRegister)}>
             <div style={{ textAlign: 'center' }}>
                 <h4 style={{ fontWeight: 'bold' }}>Crear Paciente</h4>
             </div>
@@ -58,15 +59,24 @@ function CrearPaciente() {
                             {...register('nombre', { required: true })}
                         /> {errors.nombre && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
-                    <div className="md:w-1/2 px-3">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-last-name">
-                            Tipo de documento
+                    <div className="md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label className="block tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="eps">
+                           Tipo de documento
                         </label>
-                        <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4" type="text"
+                        <select
+                            className="block appearance-none w-full bg-grey-lighter border border-grey-lighter text-grey-darker py-3 px-4 pr-8 rounded"
                             name="tipo_id"
                             id="tipo_id"
-                            placeholder="Tipo de documento"
-                            {...register('tipo_id', { required: true })} /> {errors.tipo_id && <p className="text-red-500 mt-1">Complete el campo</p>}
+                            {...register('tipo_id', { required: true })}
+                        >
+                            <option value="">Seleccione su tipo de documento</option>
+                            <option value="Registro civil">Registro civil</option>
+                            <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                            <option value="Cédula de ciudadanía">Cédula de ciudadanía</option>
+                            <option value="Cédula de extrangería">Cédula de extrangería</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                        </select>
+                        {errors.tipo_id && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                         <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
@@ -77,7 +87,7 @@ function CrearPaciente() {
                             name="doc_identidad"
                             id="doc_identidad"
                             placeholder="Documento de identidad"
-                            {...register('doc_identidad')} />{errors.doc_identidad && <p className="text-red-500 mt-1">Complete el campo</p>}
+                            {...register('doc_identidad', { required: true })} />{errors.doc_identidad && <p className="text-red-500 mt-1">Complete el campo</p>}
 
                     </div>
                 </div>
@@ -210,7 +220,7 @@ function CrearPaciente() {
                     </div>
                 </div>
                 <div><br /></div>
-                <button className="bg-sky-300 py-2 px-4 rounded-full w-1/4 mb-4" type="submit">Crear Paciente</button>
+                <button className="bg-sky-300 py-2 px-4 lg:hover:bg-gray-400 rounded-full w-1/4 mb-4" type="submit" form="miFormulario" >Crear Paciente</button>
             </div>
         </form>
     );

@@ -70,6 +70,48 @@
       "edad": "hg",
       "fecha_nacimiento": "2023-10-02",
       "id": 5
+    },
+    {
+      "nombre": "paulina tobon",
+      "tipo_id": "cedula",
+      "doc_identidad": "1000444111",
+      "direccion": "calle 9 sur # 20-20",
+      "celular": "3052404041",
+      "email": "mpaulina@paulina.com",
+      "eps": "Sura",
+      "grupo_sanguineo": "O-",
+      "genero": "Femenino",
+      "edad": "22",
+      "fecha_nacimiento": "2010-06-30",
+      "id": 6
+    },
+    {
+      "nombre": "Isabel",
+      "tipo_id": "Registro civil",
+      "doc_identidad": "1201201201",
+      "direccion": "calle 8",
+      "celular": "243",
+      "email": "isabel@udea.edu.co",
+      "eps": "Sura",
+      "grupo_sanguineo": "A+",
+      "genero": "Femenino",
+      "edad": "21",
+      "fecha_nacimiento": "2023-10-03",
+      "id": 7
+    },
+    {
+      "nombre": "Antonio Perez",
+      "tipo_id": "Cédula de extrangería",
+      "doc_identidad": "9895550122",
+      "direccion": "call 60 AB sur",
+      "celular": "3042152352",
+      "email": "antionio@antonio.com",
+      "eps": "Nueva EPS",
+      "grupo_sanguineo": "AB+",
+      "genero": "Masculino",
+      "edad": "44",
+      "fecha_nacimiento": "1978-08-15",
+      "id": 8
     }
   ]
 }
