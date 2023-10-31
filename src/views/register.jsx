@@ -161,7 +161,7 @@ function Register({ onSave }) {
 
   const save = (registro) => {
     console.log("Registro a guardar:", registro);
-    // onSave(registro);
+    onSave(registro);
     setId("");
     setPara("");
     setEvo("");
@@ -187,15 +187,6 @@ function Register({ onSave }) {
     setEspe("");
     setfecha(fechaActual);
   };
-
-  
-
-  // function CrearRegistro({ onSave }) {
-  //   console.log(value);
-
-  //   login(value.username);
-  //   navigate("/");
-  // }
 
   return (
     <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">

@@ -1,12 +1,11 @@
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import Registro from "../components/Registro";
+import Register from "./register.jsx";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 
 
-
-
-const registros = [   
+const REGISTROS = [   
     {
         "_id": 1,
         "paraclinicos": "Frecuencia cardiaca: 80 bpm, Frecuencia respiratoria: 18 rpm, Temperatura: 37.2°C",
@@ -107,12 +106,63 @@ const registros = [
     },
 ]
 
+let idSecuence = 3;
+
 function Historia() {
     const navigate = useNavigate();
+
+    const [registros, setRegistro] = useState(REGISTROS);
+
     const { logout } = useAuth();
+
+    const crearRegistro = (registro) =>{
+        const newRegistro ={
+            _id : String(++idSecuence),
+            paraclinicos:registro.paraclinicos,
+            evolucion:registro.evolucion,
+
+            procedimiento: {
+                procedimientoId:registro.procedimientoId,
+                nombrePro:registro.nombrePro,
+                descripcion:registro.descripcion
+            },
+
+            medicamento:
+            {
+                medicamentoId:registro.medicamentoId,
+                nombreMedicamento:registro.nombreMedicamento,
+                dosis:registro.dosis,
+                via:registro.via,
+                frecuencia_dia:registro.frecuencia_dia,
+                duracion_dias:registro.duracion_dias,
+                observaciones:registro.observaciones
+            },
+
+            personal:
+            {
+                personalId:registro.personalId,
+                tipo_id:registro.tipo_id,
+                nombre:registro.nombre,
+                email:registro.email,
+                doc_identidad:registro.doc_identidad,
+                cargo:registro.cargo,
+                foto:registro.foto,
+                User:registro.User,
+                password:registro.password
+            },
+
+            especialidad:registro.especialidad,
+            fecha:registro.fecha
+        };
+
+        setRegistro([newRegistro, ...registros])
+    };
+
     return (
         <>
+            <Register onSave ={(registro) => crearRegistro(registro)}/>
             <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+                
                 <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <thead className="bg-gray-50">
                         <tr className="border">
@@ -122,18 +172,19 @@ function Historia() {
                             <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Acciones</th>
 
                         </tr>
+
                     </thead>
                     <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                         {registros.map((registro) => (
                             <Registro key={registro._id} registro={registro} />
                         ))}
-
                     </tbody>
                 </table>
             </div>
             <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={logout}>Log out</button>
             <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate("/crearRegistro")}>Crear nuevo registro</button>
         </>
+
     )
 }
 
