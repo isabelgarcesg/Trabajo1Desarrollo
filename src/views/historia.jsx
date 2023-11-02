@@ -125,7 +125,7 @@ function Historia() {
 
     const { pacienteId } = useParams();
     const [pacientes, setPacientes] = useState(null);
-    const navigate = useNavigate();
+
 
     useEffect(() => {
         fetch('http://localhost:3000/pacientes/' + pacienteId)
