@@ -1,11 +1,6 @@
 import { Navigate, useNavigate, Link } from "react-router-dom";
-// import { useAuth } from "../hooks/useAuth";
 import { useForm } from 'react-hook-form';
-// function CrearPaciente(){
-//     return(
-//         <h2>HOLA</h2>
-//     )
-// }
+import Sidebar from '../components/Sidebar';
 function CrearPaciente() {
     const navigate = useNavigate();
     //   const { user, login } = useAuth();
@@ -39,13 +34,14 @@ function CrearPaciente() {
     }
 
     return (
-
+<>
+ <Sidebar />
         <form id="miFormulario" method="post" onSubmit={handleSubmit(handleRegister)}>
             <div style={{ textAlign: 'center' }}>
                 <h4  className="font-bold p-6 text-lg text-center" style={{ fontWeight: 'bold' }}>Crear Paciente</h4>
             </div>
 
-            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2" style={{ marginLeft: '70px' }}>
                 <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
                         <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-first-name">
@@ -228,6 +224,7 @@ function CrearPaciente() {
                 
             </div>
         </form>
+        </>
     );
 }
 

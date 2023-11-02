@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useState } from "react";
 import React, { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+import Sidebar from '../components/Sidebar';
 
 function Register({ onSave }) {
   const { user } = useContext(AuthContext);
@@ -189,7 +190,9 @@ function Register({ onSave }) {
   };
 
   return (
-    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+    <>
+    <Sidebar />
+    <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2" style={{ marginLeft: '70px' }}>
       <form onSubmit={handleSubmit(save)}>
         <div className="-mx-3 md:flex mb-2">
           <div className="md:w-full px-3 mb-6">
@@ -360,7 +363,9 @@ function Register({ onSave }) {
       !descripcion}  className="bg-sky-500 py-2 px-4 rounded-full w-full mt-10 " onClick={() => save(registro)}  type="submit">Enviar</button>
       </form>
     </div>
+    </>
   );
+  
 }
 
 export default Register;

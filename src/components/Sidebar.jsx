@@ -18,7 +18,7 @@ const Sidebar = () => {
                 </button>
 
                 <button
-                    className="mb-4 p-3 bg-gray-800 rounded-full hover-bg-gray-700"
+                    className="mb-4 p-3 bg-gray-800 rounded-full hover:bg-gray-700"
                     onClick={() => navigate("/ListarPacientes")}
                 >
                     <FaUsers />
