@@ -111,7 +111,7 @@ let idSecuence = 3;
 function Historia() {
     const navigate = useNavigate();
 
-    const [registros, setRegistro] = useState(REGISTROS);
+    const [registros, setRegistros] = useState(REGISTROS);
 
     const { logout } = useAuth();
 
@@ -155,14 +155,13 @@ function Historia() {
             fecha:registro.fecha
         };
 
-        setRegistro([newRegistro, ...registros])
+        setRegistros([newRegistro, ...registros])
     };
 
     return (
         <>
-            <Register onSave ={(registro) => crearRegistro(registro)}/>
+            <Register onSave={(registro) => crearRegistro(registro)} />
             <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-                
                 <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <thead className="bg-gray-50">
                         <tr className="border">
@@ -170,9 +169,7 @@ function Historia() {
                             <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Personal Asistencial</th>
                             <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Especialidad</th>
                             <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Acciones</th>
-
                         </tr>
-
                     </thead>
                     <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                         {registros.map((registro) => (
@@ -184,8 +181,7 @@ function Historia() {
             <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={logout}>Log out</button>
             <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate("/crearRegistro")}>Crear nuevo registro</button>
         </>
-
-    )
+    );
 }
 
 export default Historia;
