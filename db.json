@@ -112,6 +112,20 @@
       "edad": "44",
       "fecha_nacimiento": "1978-08-15",
       "id": 8
+    },
+    {
+      "nombre": "paulina",
+      "tipo_id": "Tarjeta de identidad",
+      "doc_identidad": "1201201201",
+      "direccion": "calle 8",
+      "celular": "1000406508",
+      "email": "mpaulina.tobon@udea.edu.co",
+      "eps": "Comeva",
+      "grupo_sanguineo": "A+",
+      "genero": "Masculino",
+      "edad": "21",
+      "fecha_nacimiento": "2023-10-12",
+      "id": 9
     }
   ]
 }

@@ -16,6 +16,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<PrivateRoute />}>
+          <Route path="/" element={<Paciente />}></Route>
           <Route path="/:pacienteId" element={<Historia />}></Route>
           <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
           <Route path="/Paciente" element={<CrearPaciente />}></Route>

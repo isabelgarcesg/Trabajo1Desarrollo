@@ -24,7 +24,7 @@ function Paciente() {
                     <h1 className="font-bold px-6 text-lg text-center">Listado de pacientes</h1>
                     <br />
                 </div>
-                <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+                <table className="w-full border-collapse border bg-white text-left text-sm text-gray-500">
                     <thead>
                         <tr>
                             <th className="p-3 font-bold bg-gray-200 text-gray-900 text-center border border-gray-300 hidden lg:table-cell">Documento</th>
@@ -44,7 +44,7 @@ function Paciente() {
                     <tbody>
                         {pacientes &&
                             pacientes.map((paciente, index) => (
-                                <tr key={index} className="bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
+                                <tr key={index} className="overflow-hidden bg-white lg:hover:bg-gray-100 flex lg:table-row flex-row lg:flex-row flex-wrap lg:flex-no-wrap mb-10 lg:mb-0">
                                     <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
                                         <span className="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-bold uppercase"></span>
                                         {paciente.doc_identidad}
