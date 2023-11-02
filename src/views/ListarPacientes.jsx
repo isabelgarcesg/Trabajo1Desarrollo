@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../components/Sidebar'; // Asegúrate de proporcionar la ruta correcta al archivo Sidebar
+
 
 function Paciente() {
     const { logout } = useAuth();
@@ -18,6 +20,12 @@ function Paciente() {
 
     return (
         <>
+        
+        <div className="hidden-sidebar">
+        <Sidebar />
+        </div>
+
+         {/* Agregar el componente Sidebar aquí */}
             <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
                 <div>
                     <br />
@@ -78,7 +86,7 @@ function Paciente() {
                                         {paciente.eps}
                                     </td>
                                     <td className="w-full lg:w-auto p-3 text-gray-800 text-center border border-b block lg:table-cell relative lg:static">
-                                        <Link to={`/${paciente.id}`}>
+                                        <Link to={`/Historia/${paciente.id}`}>
                                             Ver Detalles
                                         </Link>
                                     </td>
