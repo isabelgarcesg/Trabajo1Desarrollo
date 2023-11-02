@@ -1,10 +1,11 @@
 import {useNavigate} from "react-router-dom";
 import Registro from "../components/Registro";
-import Register from "./register.jsx";
+import Register from "../components/register.jsx";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+
 
 const REGISTROS = [
     {
@@ -116,6 +117,7 @@ const REGISTROS = [
 let idSecuence = 3;
 
 function Historia() {
+    
     const navigate = useNavigate();
 
     const [registros, setRegistros] = useState(REGISTROS);
@@ -179,19 +181,19 @@ function Historia() {
         };
         console.log(newRegistro)
         console.log(registro)
-        setRegistro([newRegistro, ...registros])
+        setRegistros([newRegistro, ...registros])
     };
 
     return (
         <>
             {pacientes ? (
-                <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+                <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-10 overflow-x:auto">
                     <div>
                         <br />
                         <h1 className="font-bold px-6 text-lg text-center">Información del paciente</h1>
                         <br />
                     </div>
-                    <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+                    <table className="w-full border-collapse bg-white text-left text-sm text-gray-500 min-width: 100%">
                         <tbody>
                             <tr>
                                 <td className="p-3 font-bold bg-gray-50 text-gray-900 text-center border border-gray-300" colSpan="2">Nombre</td>
@@ -235,16 +237,18 @@ function Historia() {
             ) : (
                 <p>Cargando datos del paciente...</p>
             )}
-            <div>
-                <h1 className="font-bold px-6 text-lg">Registros</h1>
-            </div>
+            
             <Register onSave={(registro) => {
-  crearRegistro(registro);
-  console.log(registro);
-}} />
+                crearRegistro(registro);
+                console.log(registro);
+            }} />
 
-            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
-                <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+            <div>
+                <h1 className="font-bold px-6 mt-4 ml-10 mb-4 text-lg">Registros</h1>
+            </div>
+
+            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md ml-10 mr-10 overflow-x:auto ">
+                <table className="w-full border-collapse bg-white text-left text-sm text-gray-500 min-width: 100%">
                     <thead className="bg-gray-50">
                         <tr className="border">
                             <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Fecha</th>
@@ -260,8 +264,8 @@ function Historia() {
                     </tbody>
                 </table>
             </div>
-            <button className="bg-slate-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full" onClick={() => navigate('/ListarPacientes')}>Regresar</button>
-            <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate("/crearRegistro")}>Crear nuevo registro</button>
+            <button className="bg-sky-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full ml-10" onClick={() => navigate('/ListarPacientes')}>Regresar</button>
+            
         </>
     );
 }

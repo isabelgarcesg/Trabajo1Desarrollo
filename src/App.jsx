@@ -8,7 +8,7 @@ import PrivateRoute from './components/PrivateRoute'
 import CrearPaciente from './views/crearPaciente'
 import Paciente from './views/ListarPacientes'
 
-import Register from './views/register';
+import Register from './components/register';
 
 
 
@@ -18,11 +18,11 @@ function App() {
       <Routes>
         <Route element={<PrivateRoute />}>
         <Route path="/" element={<Historia />}></Route>
-          <Route path="/:pacienteId" element={<Paciente />}></Route>
+          <Route path="/:pacienteId" element={<Historia />}></Route>
           <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
           <Route path="/Paciente" element={<CrearPaciente />}></Route>
           <Route path="/ListarPacientes" element={<Paciente />}></Route>
-          <Route path="/crearRegistro" element={<Register />}></Route>
+          {/* <Route path="/crearRegistro" element={<Register />}></Route> */}
         </Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
