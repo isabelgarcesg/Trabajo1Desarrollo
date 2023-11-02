@@ -2,10 +2,8 @@ import {useNavigate} from "react-router-dom";
 import Registro from "../components/Registro";
 import Register from "./register.jsx";
 import { useState } from "react";
-
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../hooks/useAuth";
 
 const REGISTROS = [

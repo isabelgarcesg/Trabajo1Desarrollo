@@ -48,7 +48,7 @@ function CrearPaciente() {
             <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
                 <div className="-mx-3 md:flex mb-6">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-first-name">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-first-name">
                             Nombre
                         </label>
                         <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-red rounded py-3 px-4 mb-3"
@@ -79,7 +79,7 @@ function CrearPaciente() {
                         {errors.tipo_id && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-password">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-password">
                             Número de documento
                         </label>
                         <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3"
@@ -94,7 +94,7 @@ function CrearPaciente() {
                 <div className="-mx-3 md:flex mb-2">
 
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-city">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-city">
                             Dirección
                         </label>
                         <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
@@ -105,7 +105,7 @@ function CrearPaciente() {
                             {...register('direccion', { required: true })} />  {errors.direccion && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
                     <div className="md:w-1/2 px-3">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-zip">
                             Celular
                         </label>
                         <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
@@ -116,7 +116,7 @@ function CrearPaciente() {
                             {...register('celular', { required: true })} /> {errors.celular && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
                     <div className="md:w-1/2 px-3 ">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-zip">
                             Correo
                         </label>
                         <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
@@ -197,7 +197,7 @@ function CrearPaciente() {
                 <div> <br /> </div>
                 <div className="-mx-3 md:flex mb-2">
                     <div className="md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-zip">
                             Edad
                         </label>
                         <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
@@ -208,7 +208,7 @@ function CrearPaciente() {
                             {...register('edad', { required: true })} /> {errors.edad && <p className="text-red-500 mt-1">Complete el campo</p>}
                     </div>
                     <div className="md:w-1/2 px-3">
-                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" for="grid-zip">
+                        <label className="block  tracking-wide text-grey-darker text-xs font-bold mb-2" htmlFor="grid-zip">
                             Fecha de nacimiento
                         </label>
                         <input className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4"
