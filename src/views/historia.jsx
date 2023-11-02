@@ -1,11 +1,14 @@
 import {useNavigate} from "react-router-dom";
 import Registro from "../components/Registro";
 import Register from "./register.jsx";
-import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
 
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../hooks/useAuth";
 
-const REGISTROS = [   
+const REGISTROS = [
     {
         "_id": 1,
         "paraclinicos": "Frecuencia cardiaca: 80 bpm, Frecuencia respiratoria: 18 rpm, Temperatura: 37.2°C",
@@ -119,7 +122,20 @@ function Historia() {
 
     const [registros, setRegistro] = useState(REGISTROS);
 
-    const { logout } = useAuth();
+
+    const { pacienteId } = useParams();
+    const [pacientes, setPacientes] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch('http://localhost:3000/pacientes/' + pacienteId)
+            .then((res) => res.json())
+            .then(datosRespuesta => {
+                setPacientes(datosRespuesta);
+                // console.log(pacientes);
+            })
+            .catch(console.log)
+    }, [])
 
     const crearRegistro = (registro) =>{
         const newRegistro ={
@@ -170,6 +186,60 @@ function Historia() {
 
     return (
         <>
+            {pacientes ? (
+                <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+                    <div>
+                        <br />
+                        <h1 className="font-bold px-6 text-lg text-center">Información del paciente</h1>
+                        <br />
+                    </div>
+                    <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
+                        <tbody>
+                            <tr>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 text-center border border-gray-300" colSpan="2">Nombre</td>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 text-center border border-gray-300" colSpan="2">{pacientes.nombre}</td>
+                            </tr>
+                            <tr>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Tipo de documento</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.tipo_id}</td>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Documento</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.doc_identidad}</td>
+                            </tr>
+                            <tr>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Fecha de nacimiento</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.fecha_nacimiento}</td>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Edad</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.edad}</td>
+                            </tr>
+                            <tr>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Género</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.genero}</td>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Correo electrónico</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.email}</td>
+                            </tr>
+                            <tr>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Dirección</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.direccion}</td>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Celular</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.celular}</td>
+                            </tr>
+                            <tr>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">EPS</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.eps}</td>
+                                <td className="p-3 font-bold bg-gray-50 text-gray-900 border border-gray-300">Grupo sanguíneo</td>
+                                <td className="p-3 text-gray-800 text-center border border-b">{pacientes.grupo_sanguineo}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            ) : (
+                <p>Cargando datos del paciente...</p>
+            )}
+            <div>
+                <h1 className="font-bold px-6 text-lg">Registros</h1>
+            </div>
             <Register onSave={(registro) => {
   crearRegistro(registro);
   console.log(registro);
@@ -195,7 +265,7 @@ function Historia() {
                     </tbody>
                 </table>
             </div>
-            <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={logout}>Log out</button>
+            <button className="bg-slate-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full" onClick={() => navigate('/ListarPacientes')}>Regresar</button>
             <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate("/crearRegistro")}>Crear nuevo registro</button>
         </>
 
