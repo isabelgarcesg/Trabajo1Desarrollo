@@ -1,11 +1,12 @@
+import {useNavigate} from "react-router-dom";
 import Registro from "../components/Registro";
+import Register from "./register.jsx";
 import { useState } from "react";
-
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../hooks/useAuth";
-const registros = [
+
+const REGISTROS = [
     {
         "_id": 1,
         "paraclinicos": "Frecuencia cardiaca: 80 bpm, Frecuencia respiratoria: 18 rpm, Temperatura: 37.2°C",
@@ -32,11 +33,13 @@ const registros = [
             "email": "jesusg@gmail.com",
             "doc_identidad": "4826109375",
             "cargo": "Enfermero",
-            "foto": "https://randomuser.me/api/portraits/men/78.jpg"
+            "foto": "https://randomuser.me/api/portraits/men/78.jpg",
+            "User":"pedroj",
+            "password":"12345"
         },
         "especialidad": "Enfermería",
         "fecha": {
-            "$date": "2022-06-22T05:00:00.000Z"
+            "$date": "2022-06-22"
         }
     },
     {
@@ -65,11 +68,13 @@ const registros = [
             "email": "mpaulina@gmail.com",
             "doc_identidad": "9876543210",
             "cargo": "Enfermera",
-            "foto": "https://randomuser.me/api/portraits/women/90.jpg"
+            "foto": "https://randomuser.me/api/portraits/women/90.jpg",
+            "User":"paulina",
+            "password":"12345"
         },
         "especialidad": "Enfermería",
         "fecha": {
-            "$date": "2023-10-03T05:00:00.000Z"
+            "$date": "2023-10-03"
         }
     },
     {
@@ -97,20 +102,28 @@ const registros = [
             "email": "fa1990@hotmail.com",
             "doc_identidad": "2468135790",
             "cargo": "Medico",
-            "foto": "https://randomuser.me/api/portraits/men/74.jpg"
+            "foto": "https://randomuser.me/api/portraits/men/74.jpg",
+            "User":"francisco",
+            "password":"12345"
         },
         "especialidad": "Gastroenterología",
         "fecha": {
-            "$date": "2023-09-17T05:00:00.000Z"
+            "$date": "2023-09-17"
         }
     },
 ]
 
+let idSecuence = 3;
+
 function Historia() {
+    const navigate = useNavigate();
+
+    const [registros, setRegistro] = useState(REGISTROS);
+
 
     const { pacienteId } = useParams();
     const [pacientes, setPacientes] = useState(null);
-    const navigate = useNavigate();
+
 
     useEffect(() => {
         fetch('http://localhost:3000/pacientes/' + pacienteId)
@@ -121,6 +134,54 @@ function Historia() {
             })
             .catch(console.log)
     }, [])
+
+    const crearRegistro = (registro) =>{
+        const newRegistro ={
+            _id : String(++idSecuence),
+            paraclinicos:registro.paraclinicos,
+            evolucion:registro.evolucion,
+
+            procedimiento: {
+                _id:registro.procedimiento.procedimientoId,
+                nombre:registro.procedimiento.nombrePro,
+                descripcion:registro.procedimiento.descripcion
+            },
+
+            medicamento:
+            {
+                _id:registro.medicamento.medicamentoId,
+                nombre:registro.medicamento.nombreMedicamento,
+                dosis:registro.medicamento.dosis,
+                via:registro.medicamento.via,
+                frecuencia_dia:registro.medicamento.frecuencia_dia,
+                duracion_dias:registro.medicamento.duracion_dias,
+                observaciones:registro.medicamento.observaciones
+            },
+
+            personal:
+            {
+                _id:registro.personal.personalId,
+                tipo_id:registro.personal.tipo_id,
+                nombre:registro.personal.nombre,
+                email:registro.personal.email,
+                doc_identidad:registro.personal.doc_identidad,
+                cargo:registro.personal.cargo,
+                foto:registro.personal.foto,
+                User:registro.personal.User,
+                password:registro.personal.password
+            },
+
+            especialidad:registro.especialidad,
+            fecha:
+            {
+                $date:registro.fecha
+            }
+        };
+        console.log(newRegistro)
+        console.log(registro)
+        setRegistro([newRegistro, ...registros])
+    };
+
     return (
         <>
             {pacientes ? (
@@ -177,7 +238,13 @@ function Historia() {
             <div>
                 <h1 className="font-bold px-6 text-lg">Registros</h1>
             </div>
+            <Register onSave={(registro) => {
+  crearRegistro(registro);
+  console.log(registro);
+}} />
+
             <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+                
                 <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <thead className="bg-gray-50">
                         <tr className="border">
@@ -187,17 +254,19 @@ function Historia() {
                             <th scope="col" className="border px-6 py-4 font-bold text-gray-900">Acciones</th>
 
                         </tr>
+
                     </thead>
                     <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                         {registros.map((registro) => (
                             <Registro key={registro._id} registro={registro} />
                         ))}
-
                     </tbody>
                 </table>
             </div>
             <button className="bg-slate-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full" onClick={() => navigate('/ListarPacientes')}>Regresar</button>
+            <button className="bg-slate-300 m-4 py-3 px-6 rounded-full" onClick={() => navigate("/crearRegistro")}>Crear nuevo registro</button>
         </>
+
     )
 }
 

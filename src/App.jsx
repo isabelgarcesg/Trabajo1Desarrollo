@@ -8,6 +8,7 @@ import PrivateRoute from './components/PrivateRoute'
 import CrearPaciente from './views/crearPaciente'
 import Paciente from './views/ListarPacientes'
 
+import Register from './views/register';
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
           <Route path="/Paciente" element={<CrearPaciente />}></Route>
           <Route path="/ListarPacientes" element={<Paciente />}></Route>
+          <Route path="/crearRegistro" element={<Register />}></Route>
         </Route>
         <Route path="/login" element={<Login />}></Route>
       </Routes>
