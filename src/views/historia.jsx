@@ -32,11 +32,13 @@ const REGISTROS = [
             "email": "jesusg@gmail.com",
             "doc_identidad": "4826109375",
             "cargo": "Enfermero",
-            "foto": "https://randomuser.me/api/portraits/men/78.jpg"
+            "foto": "https://randomuser.me/api/portraits/men/78.jpg",
+            "User":"pedroj",
+            "password":"12345"
         },
         "especialidad": "Enfermería",
         "fecha": {
-            "$date": "2022-06-22T05:00:00.000Z"
+            "$date": "2022-06-22"
         }
     },
     {
@@ -65,11 +67,13 @@ const REGISTROS = [
             "email": "mpaulina@gmail.com",
             "doc_identidad": "9876543210",
             "cargo": "Enfermera",
-            "foto": "https://randomuser.me/api/portraits/women/90.jpg"
+            "foto": "https://randomuser.me/api/portraits/women/90.jpg",
+            "User":"paulina",
+            "password":"12345"
         },
         "especialidad": "Enfermería",
         "fecha": {
-            "$date": "2023-10-03T05:00:00.000Z"
+            "$date": "2023-10-03"
         }
     },
     {
@@ -97,11 +101,13 @@ const REGISTROS = [
             "email": "fa1990@hotmail.com",
             "doc_identidad": "2468135790",
             "cargo": "Medico",
-            "foto": "https://randomuser.me/api/portraits/men/74.jpg"
+            "foto": "https://randomuser.me/api/portraits/men/74.jpg",
+            "User":"francisco",
+            "password":"12345"
         },
         "especialidad": "Gastroenterología",
         "fecha": {
-            "$date": "2023-09-17T05:00:00.000Z"
+            "$date": "2023-09-17"
         }
     },
 ]
@@ -122,45 +128,53 @@ function Historia() {
             evolucion:registro.evolucion,
 
             procedimiento: {
-                procedimientoId:registro.procedimientoId,
-                nombrePro:registro.nombrePro,
-                descripcion:registro.descripcion
+                _id:registro.procedimiento.procedimientoId,
+                nombre:registro.procedimiento.nombrePro,
+                descripcion:registro.procedimiento.descripcion
             },
 
             medicamento:
             {
-                medicamentoId:registro.medicamentoId,
-                nombreMedicamento:registro.nombreMedicamento,
-                dosis:registro.dosis,
-                via:registro.via,
-                frecuencia_dia:registro.frecuencia_dia,
-                duracion_dias:registro.duracion_dias,
-                observaciones:registro.observaciones
+                _id:registro.medicamento.medicamentoId,
+                nombre:registro.medicamento.nombreMedicamento,
+                dosis:registro.medicamento.dosis,
+                via:registro.medicamento.via,
+                frecuencia_dia:registro.medicamento.frecuencia_dia,
+                duracion_dias:registro.medicamento.duracion_dias,
+                observaciones:registro.medicamento.observaciones
             },
 
             personal:
             {
-                personalId:registro.personalId,
-                tipo_id:registro.tipo_id,
-                nombre:registro.nombre,
-                email:registro.email,
-                doc_identidad:registro.doc_identidad,
-                cargo:registro.cargo,
-                foto:registro.foto,
-                User:registro.User,
-                password:registro.password
+                _id:registro.personal.personalId,
+                tipo_id:registro.personal.tipo_id,
+                nombre:registro.personal.nombre,
+                email:registro.personal.email,
+                doc_identidad:registro.personal.doc_identidad,
+                cargo:registro.personal.cargo,
+                foto:registro.personal.foto,
+                User:registro.personal.User,
+                password:registro.personal.password
             },
 
             especialidad:registro.especialidad,
-            fecha:registro.fecha
+            fecha:
+            {
+                $date:registro.fecha
+            }
         };
-
+        console.log(newRegistro)
+        console.log(registro)
         setRegistro([newRegistro, ...registros])
     };
 
     return (
         <>
-            <Register onSave ={(registro) => crearRegistro(registro)}/>
+            <Register onSave={(registro) => {
+  crearRegistro(registro);
+  console.log(registro);
+}} />
+
             <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
                 
                 <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
