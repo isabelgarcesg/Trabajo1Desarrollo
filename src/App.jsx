@@ -8,7 +8,7 @@ import RegistroView from './views/registro_info';
 import CrearPaciente from './views/crearPaciente'
 import Paciente from './views/ListarPacientes'
 import Dashboard from './views/Home'
-import Register from './views/register';
+
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="/registro/:registroId" element={<RegistroView />} exact></Route>
         <Route path="/Paciente" element={<CrearPaciente />}></Route>
         <Route path="/ListarPacientes" element={<Paciente />}></Route>
-        <Route path="/crearRegistro" element={<Register />}></Route>
+      
       </Route>
       <Route path="/login" element={<Login />}></Route>
     </Routes>

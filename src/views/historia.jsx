@@ -188,7 +188,7 @@ function Historia() {
         <>
             <Sidebar />
             {pacientes ? (
-                <div className="overflow-hidden rounded-lg  m-5" style={{ marginLeft: '70px' }}>
+                <div className="overflow-hidden rounded-lg shadow-md ml-10 mr-10 overflow-x:auto " style={{ marginLeft: '70px' }}>
                     <div>
                         <br />
                         <h1 className="font-bold px-6 text-lg text-center">Información del paciente</h1>
@@ -239,9 +239,7 @@ function Historia() {
                 <p>Cargando datos del paciente...</p>
             )}
           <div className="overflow-hidden rounded-lg  m-5" style={{ marginLeft: '70px' }}>
-          <div>
-                <h1 className="font-bold px-6 text-lg">Registros</h1>
-            </div>
+
             <Register onSave={(registro) => {
                 crearRegistro(registro);
                 console.log(registro);
@@ -269,7 +267,7 @@ function Historia() {
                 </table>
             </div>
             <button className="bg-sky-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full ml-10" onClick={() => navigate('/ListarPacientes')}>Regresar</button>
-            
+            </div>
         </>
     );
 }

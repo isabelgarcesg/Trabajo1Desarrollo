@@ -217,8 +217,8 @@ function CrearPaciente() {
                 </div>
                 <div><br /></div>
                 <div>
-                <button className="bg-slate-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full" type="submit" form="miFormulario" >Crear Paciente</button>
-                <button className="bg-slate-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full" onClick={() => navigate('/ListarPacientes')}>Cancelar</button>
+                <button className="bg-sky-300  m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full" type="submit" form="miFormulario" >Crear Paciente</button>
+                <button className="bg-sky-300 m-4 lg:hover:bg-gray-400  py-3 px-6 rounded-full" onClick={() => navigate('/')}>Cancelar</button>
                 </div>
                 
                 

@@ -126,6 +126,20 @@
       "edad": "21",
       "fecha_nacimiento": "2023-10-12",
       "id": 9
+    },
+    {
+      "nombre": "Isabel",
+      "tipo_id": "Registro civil",
+      "doc_identidad": "1201201201",
+      "direccion": "calle 9 sur",
+      "celular": "1000406508",
+      "email": "mpaulina.tobon@udea.edu.co",
+      "eps": "Comeva",
+      "grupo_sanguineo": "A-",
+      "genero": "Masculino",
+      "edad": "21",
+      "fecha_nacimiento": "2023-09-06",
+      "id": 10
     }
   ]
 }
