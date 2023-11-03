@@ -1,87 +1,54 @@
 import React from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
-import {
-    FaHome,
-    FaSignOutAlt,
-    FaPlus,
-    FaUsers,
-} from "react-icons/fa";
-import hospitalImage from "../assets/Hospital.jpg";
+import Sidebar from '../components/Sidebar';
+import logo from "../assets/logo.png";
+
+
+
 
 const Dashboard = () => {
-    const { logout } = useAuth();
-    const navigate = useNavigate();
-
     return (
-        <div className="h-screen flex">
-            {/* Sidebar */}
-            <aside className="w-16 bg-gray-800 text-white flex flex-col items-center">
-                <div className="py-4">
-                    <button
-                        className="mb-4 p-3 bg-gray-800 rounded-full hover:bg-gray-700"
-                        onClick={() => navigate("/")}
-                    >
-                        <FaHome />
-                    </button>
-
-                    <button
-                        className="mb-4 p-3 bg-gray-800 rounded-full hover-bg-gray-700"
-                        onClick={() => navigate("/ListarPacientes")}
-                    >
-                        <FaUsers />
-                    </button>
-
-                    <button
-                        className="mb-4 p-3 bg-gray-800 rounded-full hover:bg-gray-700"
-                        onClick={() => navigate("/Paciente")}
-                    >
-                        <FaPlus />
-                    </button>
-
-                    <button
-                        className="mb-4 p-3 bg-gray-800 rounded-full hover:bg-gray-700"
-                        onClick={logout}
-                    >
-                        <FaSignOutAlt />
-                    </button>
-                </div>
-            </aside>
-
-            {/* Main Content */}
-            <main className="flex-1 p-4">
-                {/* Cabecera del contenido */}
-                <div className="mb-4">
-                    <h1 className="text-2xl font-bold">Hospital Central</h1>
-                    <p>Bienvenido al sistema de historias clínicas</p>
-                </div>
-
-                {/* Imagen del hospital */}
-                <div className="mb-8">
-                    <img
-                        src={hospitalImage}
-                        alt="Hospital"
-                        className="rounded-lg shadow-lg"
-                    />
-                </div>
-
-                {/* Noticias de interés */}
-                <div className="text-xl font-bold mb-4">Noticias de interés</div>
-                <div className="bg-white rounded-lg p-4 shadow-lg">
-                    {/* Aquí puedes agregar tus noticias de interés en un diseño organizado */}
-                    <div className="mb-4">
-                        <h2 className="text-lg font-bold">Título de la noticia</h2>
-                        <p>Descripción breve de la noticia.</p>
+        <>
+            <Sidebar />
+            <div className="bg-white" style={{ marginLeft: '80px' }}>
+                <div className="container flex flex-col mx-auto bg-white">
+                    <div className="grid w-full  mb-8 md:grid-cols-2 xl:gap-14 md:gap-5">
+                        <div className="flex flex-col justify-center col-span-1 text-center lg:text-start">
+                            <div className="flex items-center justify-center mb-4 lg:justify-normal">
+                                <img className="h-60" src={logo} alt="Logo" style={{ marginLeft: '40px' }} />
+                                <h4 className="mb-8 font-extrabold leading-tight lg:text-4xl text-dark-grey-900">
+                                    Sistema de historias electrónicas Hospital Central
+                                </h4>
+                            </div>
+                            <h1 className="mb-8 font-bold leading-tight lg:text-2xl text-dark-grey-900" style={{ marginLeft: '40px' }}>
+                                Tu bienestar, nuestra prioridad
+                            </h1>
+                            <p className="mb-6 text-base font-normal leading-7 lg:w-3/4 text-justify text-grey-900" style={{ marginLeft: '40px' }}>
+                                <strong>Misión</strong> <br />
+                                En Hospital Central, nuestra misión es brindar atención médica de calidad y compasiva a todos nuestros pacientes. Nos esforzamos por promover la salud, prevenir enfermedades y ofrecer tratamientos avanzados en un entorno seguro y acogedor.
+                            </p>
+                            <p className="mb-6 text-base font-normal leading-7 lg:w-3/4 text-justify text-grey-900" style={{ marginLeft: '40px' }}>
+                                <strong>Visión</strong> <br />
+                                Nuestra visión es convertirnos en un referente en el campo de la atención médica, destacando por nuestra excelencia clínica, innovación constante y compromiso con el bienestar de la comunidad. Aspiramos a ser el hospital de elección para pacientes, profesionales de la salud y colaboradores.
+                            </p>
+                        </div>
+                        <div className="bg-blue-950 w-full  flex items-center justify-center">
+                            <img 
+                                className="w-full rounded-md"
+                                src="https://qtxasset.com/quartz/qcloud5/media/image/Hospital.jpg?VersionId=Um0ZgO16.EDXjcB.0UtaUE.vwMZK5WQo"
+                                alt="header image"
+                            />
+                        </div>
                     </div>
-                    <div className="mb-4">
-                        <h2 className="text-lg font-bold">Título de la noticia</h2>
-                        <p>Descripción breve de la noticia.</p>
-                    </div>
-                    {/* Agrega más noticias aquí */}
                 </div>
-            </main>
-        </div>
+            </div>
+        </>
     );
-};
+}
 
 export default Dashboard;
+
+
+
+

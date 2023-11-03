@@ -6,7 +6,7 @@ import Sidebar from '../components/Sidebar';
 
 
 function Paciente() {
-    const { logout } = useAuth();
+
     const [pacientes, setPacientes] = useState(null);
     const navigate = useNavigate();
     useEffect(() => {

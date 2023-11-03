@@ -65,7 +65,7 @@ function Login() {
     const { user, login } = useAuth(); 
 
     if (user) {
-        return (<Navigate to="/ListarPacientes" />);
+        return (<Navigate to="/" />);
     }
 
     function handleSubmit(e) {
@@ -86,7 +86,7 @@ function Login() {
       if (foundUser) {
           // Usuario y contraseña válidos, procede con el inicio de sesión
           login(foundUser);
-          navigate('/ListarPacientes');
+          navigate('/');
           console.log(foundUser) 
       } else {
           // El inicio de sesión falló

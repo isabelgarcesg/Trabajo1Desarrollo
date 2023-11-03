@@ -9,7 +9,7 @@ const Sidebar = () => {
 
     return (
         <aside className="w-16 bg-gray-800 text-white flex flex-col items-center fixed top-0 left-0 h-screen">
-            <div className="py-4">
+            <div className="py-10 px-5">
                 <button
                     className="mb-4 p-3 bg-gray-800 rounded-full hover:bg-gray-700"
                     onClick={() => navigate("/")}
