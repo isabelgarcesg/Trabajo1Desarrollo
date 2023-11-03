@@ -33,7 +33,7 @@ const Dashboard = () => {
                                 Nuestra visión es convertirnos en un referente en el campo de la atención médica, destacando por nuestra excelencia clínica, innovación constante y compromiso con el bienestar de la comunidad. Aspiramos a ser el hospital de elección para pacientes, profesionales de la salud y colaboradores.
                             </p>
                         </div>
-                        <div className="w-full  flex items-center justify-center">
+                        <div className="w-full bg-blue-950 flex items-center justify-center">
                             <img 
                                 className="w-full rounded-md"
                                 src="https://qtxasset.com/quartz/qcloud5/media/image/Hospital.jpg?VersionId=Um0ZgO16.EDXjcB.0UtaUE.vwMZK5WQo"

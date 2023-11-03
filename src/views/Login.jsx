@@ -103,7 +103,7 @@ function Login() {
       <form className="flex flex-col" method="post" onSubmit={handleSubmit}>
         <input className="mb-4 rounded-md p-3 text-black" type="text" name="username" id="username" placeholder="Username" />
         <input className="mb-4 rounded-md p-3 text-black" type="password" name="password" id="password" placeholder="Password" />
-        <button className="bg-slate-100 py-3 px-6 rounded-full" type="submit">Sing in</button>
+        <button className="bg-slate-100 lg:hover:bg-gray-400 py-3 px-6 rounded-full" type="submit">Sing in</button>
       </form>
     </div>
   </div>
