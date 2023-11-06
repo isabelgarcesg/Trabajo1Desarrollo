@@ -1,6 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
+import logo from "../assets/logo.png";
 
 const personal = [
   {
@@ -101,37 +102,50 @@ function Login() {
   }
 
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <div className="p-4">
-        <div className="bg-slate-300 rounded-md p-6 text-center">
-          <h2 className="mb-4 font-bold text-3xl">Iniciar sesión</h2>
-          <form className="flex flex-col" method="post" onSubmit={handleSubmit}>
-            <input
-              className="mb-4 rounded-md p-3 text-black"
-              type="text"
-              name="username"
-              id="username"
-              placeholder="Username"
-            />
-            <input
-              className="mb-4 rounded-md p-3 text-black"
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Password"
-            />
-            {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>} {/* Mostrar mensaje de error */}
-            <button
-              className="bg-slate-100 lg:hover:bg-gray-400 py-3 px-6 rounded-full"
-              type="submit"
-            >
-              Iniciar sesión
-            </button>
-          </form>
+    <>
+      <div className="w-screen h-screen flex flex-col justify-center items-center">
+      <div className="flex flex-row items-center">
+          <div className="mb-4 mr-4">
+            <img className="h-40" src={logo} alt="Logo" />
+          </div>
+          <h4 className="mb-8 font-extrabold leading-tight lg:text-2xl text-dark-grey-900">
+            Sistema de historias electrónicas <br /> Hospital Central
+          </h4>
+        </div>
+        <div className="p-4">
+          <div className="bg-slate-300 rounded-md p-6 text-center">
+            <h2 className="mb-4 font-bold text-3xl">Iniciar sesión</h2>
+            <form className="flex flex-col" method="post" onSubmit={handleSubmit}>
+              <input
+                className="mb-4 rounded-md p-3 text-black"
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+              />
+              <input
+                className="mb-4 rounded-md p-3 text-black"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+              {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>} {/* Mostrar mensaje de error */}
+              <button
+                className="bg-slate-100 lg:hover:bg-gray-400 py-3 px-6 rounded-full"
+                type="submit"
+              >
+                Iniciar sesión
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
+  
+  
+  
 }
 
 export default Login;
