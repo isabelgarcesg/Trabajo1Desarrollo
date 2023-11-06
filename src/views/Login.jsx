@@ -125,7 +125,7 @@ function Login() {
               className="bg-slate-100 lg:hover:bg-gray-400 py-3 px-6 rounded-full"
               type="submit"
             >
-              Sign in
+              Iniciar sesión
             </button>
           </form>
         </div>
