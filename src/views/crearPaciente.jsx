@@ -180,7 +180,7 @@ function CrearPaciente() {
                             id="genero"
                             {...register('genero', { required: true })}
                         >
-                            <option value="">Seleccione una EPS</option>
+                            <option value="">Seleccione un Genero</option>
                             <option value="Femenino">Femenino</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Indenifido">Indefinido</option>
