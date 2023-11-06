@@ -1,7 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { useState } from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo1.png";
 
 const personal = [
   {

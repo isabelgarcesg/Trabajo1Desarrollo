@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-// import Registro from "../components/Registro";
+import Sidebar from '../components/Sidebar';
 
 function RegistroView() {
 
@@ -44,7 +44,8 @@ function RegistroView() {
     return (
 
         <>
-            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+            <Sidebar />
+            <div className="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5" style={{ marginLeft: '80px' }}>
                 <table className="w-full border-collapse bg-white text-left text-sm text-gray-500">
                     <tbody className="divide-y divide-gray-100 border-t border-gray-100">
                         <tr className="border border hover:bg-gray-50">
