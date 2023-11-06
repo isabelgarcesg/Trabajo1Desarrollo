@@ -1,5 +1,7 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import { useState } from "react";
+import logo from "../assets/logo.png";
 
 const personal = [
   {
@@ -60,58 +62,96 @@ const personal = [
 ]
 
 function Login() {
+  const navigate = useNavigate();
+  const { user, login } = useAuth();
 
-    const navigate = useNavigate();
-    const { user, login } = useAuth(); 
+  const [errorMessage, setErrorMessage] = useState(""); // Estado para el mensaje de error
 
-    if (user) {
-        return (<Navigate to="/" />);
-    }
-
-    function handleSubmit(e) {
-      e.preventDefault();
-  
-      const form = e.target;
-      const formData = new FormData(form);
-  
-      const loginObject = Object.fromEntries(formData.entries());
-  
-      // Buscar el usuario en el arreglo personal
-      const foundUser = personal.find(
-          (user) =>
-              user.usuario === loginObject.username &&
-              user.password === loginObject.password
-      );
-  
-      if (foundUser) {
-          // Usuario y contraseña válidos, procede con el inicio de sesión
-          login(foundUser);
-          navigate('/');
-          console.log(foundUser) 
-      } else {
-          // El inicio de sesión falló
-          console.log('Usuario o contraseña incorrectos');
-      }
+  if (user) {
+    return <Navigate to="/" />;
   }
 
-    return (
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const loginObject = Object.fromEntries(formData.entries());
+
+    if (!loginObject.username || !loginObject.password) {
+      setErrorMessage("Los campos son requeridos");
+      return; // Detener la función si hay errores
+    } else {
+      setErrorMessage("");
+    }
+
+    // Buscar el usuario en el arreglo personal
+    const foundUser = personal.find(
+      (user) =>
+        user.usuario === loginObject.username &&
+        user.password === loginObject.password
+    );
+
+    if (foundUser) {
+      login(foundUser);
+      navigate('/');
+      console.log(foundUser);
+    } else {
+      setErrorMessage("Usuario o contraseña incorrectos"); // Mostrar mensaje de error
+    }
+  }
+
+  return (
+    <>
+      <div className="w-screen h-screen flex flex-col justify-center items-center">
+      <div className="flex flex-row items-center">
+          <div className="mb-4 mr-4">
+            <img className="h-40" src={logo} alt="Logo" />
+          </div>
+          <h4 className="mb-8 font-extrabold leading-tight lg:text-2xl text-dark-grey-900">
+            Sistema de historias electrónicas <br /> Hospital Central
+          </h4>
+        </div>
+        <div className="p-4">
+          <div className="bg-slate-300 rounded-md p-6 text-center">
+            <h2 className="mb-4 font-bold text-3xl">Iniciar sesión</h2>
+            <form className="flex flex-col" method="post" onSubmit={handleSubmit}>
+              <input
+                className="mb-4 rounded-md p-3 text-black"
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+              />
+              <input
+                className="mb-4 rounded-md p-3 text-black"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+              />
+              {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>} {/* Mostrar mensaje de error */}
+              <button
+                className="bg-slate-100 lg:hover:bg-gray-400 py-3 px-6 rounded-full"
+                type="submit"
+              >
+                Iniciar sesión
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
+  );
   
-<div className="w-screen h-screen flex justify-center items-center">
-  <div className="p-4">
-    <div className="bg-slate-300 rounded-md p-6 text-center">
-      <h2 className="mb-4 font-bold text-3xl">Iniciar sesión</h2>
-      <form className="flex flex-col" method="post" onSubmit={handleSubmit}>
-        <input className="mb-4 rounded-md p-3 text-black" type="text" name="username" id="username" placeholder="Username" />
-        <input className="mb-4 rounded-md p-3 text-black" type="password" name="password" id="password" placeholder="Password" />
-        <button className="bg-slate-100 lg:hover:bg-gray-400 py-3 px-6 rounded-full" type="submit">Sing in</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-
-    )
+  
+  
 }
 
 export default Login;
+
+
+
+
+
+
