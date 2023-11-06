@@ -1,7 +1,7 @@
 {
   "pacientes": [
     {
-      "nombre": "paulina tobon",
+      "nombre": "Paulina Tobón",
       "edad": "22",
       "tipo_id": "cedula",
       "grupo_sanguineo": "A+",
@@ -15,7 +15,7 @@
       "id": 1
     },
     {
-      "nombre": "emiliano rendon",
+      "nombre": "Emiliano Rendón",
       "edad": "24",
       "tipo_id": "cedula",
       "grupo_sanguineo": "A-",
