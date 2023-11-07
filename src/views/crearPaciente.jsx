@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import Sidebar from '../components/Sidebar';
 function CrearPaciente() {
     const navigate = useNavigate();
-    //   const { user, login } = useAuth();
     const {
         register,
         handleSubmit,
@@ -12,7 +11,6 @@ function CrearPaciente() {
 
     function handleRegister(value) {
         // hacer una peticion fetch al servidor para que registre al usuario
-        // fetch('/api/register', { method: 'POST', body: value });
 
         fetch('http://localhost:3000/pacientes', {
             method: 'POST',
@@ -24,8 +22,6 @@ function CrearPaciente() {
             .then((res) => res.json())
             .then((user) => {
                 navigate('/ListarPacientes')
-                // login(user.id);
-                // navigate("/login");
             })
             .catch((error) => {
                 console.log(error)

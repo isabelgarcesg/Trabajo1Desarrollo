@@ -1,5 +1,3 @@
-//import { Navigate, useNavigate, Link } from "react-router-dom";
-// import { useAuth } from "../hooks/useAuth";
 import { useForm } from 'react-hook-form';
 import { useState } from "react";
 import React, { useContext } from "react";
@@ -7,7 +5,6 @@ import { AuthContext } from "../context/AuthContext";
 
 function Register({ onSave }) {
   const { user } = useContext(AuthContext);
-  // const navigate = useNavigate();
   const {
     register,
     handleSubmit,
