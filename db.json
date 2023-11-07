@@ -69,6 +69,20 @@
       "edad": "12",
       "fecha_nacimiento": "2023-10-02",
       "id": 5
+    },
+    {
+      "nombre": "Pedro Gutierrez",
+      "tipo_id": "Cédula de ciudadanía",
+      "doc_identidad": "714452132",
+      "direccion": "Calle 65b #33-20",
+      "celular": "3217754840",
+      "email": "pedro@hotmail.com",
+      "eps": "Savia Salud",
+      "grupo_sanguineo": "AB+",
+      "genero": "Masculino",
+      "edad": "57",
+      "fecha_nacimiento": "1966-01-15",
+      "id": 6
     }
   ]
 }

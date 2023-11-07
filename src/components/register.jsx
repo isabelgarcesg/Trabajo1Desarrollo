@@ -161,7 +161,7 @@ function Register({ onSave }) {
   ]
 
   const save = (registro) => {
-    console.log("Registro a guardar:", registro);
+
     onSave(registro);
     setId("");
     setPara("");
@@ -286,7 +286,7 @@ function Register({ onSave }) {
                 setFrec(selectedMedicamento.frecuencia_dia);
                 setDuracion(selectedMedicamento.duracion_dias);
                 setObservaciones(selectedMedicamento.observaciones);
-                console.log(selectedMedicamento);
+
               } else {
                 // Si no se selecciona ningún medicamento o no se encuentra en la lista, puedes restablecer los valores a su estado inicial
                 setMedID("");
@@ -329,7 +329,7 @@ function Register({ onSave }) {
                 setProID(selectedProcedimiento._id);
                 setnombrePro(selectedProcedimiento.nombre);
                 setdesc(selectedProcedimiento.descripcion);
-                console.log(selectedProcedimiento);
+
               } else {
                 // Si no se selecciona ningún procedimiento o no se encuentra en la lista, puedes restablecer los valores a su estado inicial
                 setProID("");

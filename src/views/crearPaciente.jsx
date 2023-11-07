@@ -23,7 +23,6 @@ function CrearPaciente() {
         })
             .then((res) => res.json())
             .then((user) => {
-                console.log(user)
                 navigate('/ListarPacientes')
                 // login(user.id);
                 // navigate("/login");

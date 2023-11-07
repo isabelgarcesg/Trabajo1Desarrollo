@@ -132,7 +132,6 @@ function Historia() {
             .then((res) => res.json())
             .then(datosRespuesta => {
                 setPacientes(datosRespuesta);
-                // console.log(pacientes);
             })
             .catch(console.log)
     }, [])
@@ -179,8 +178,7 @@ function Historia() {
                 $date: registro.fecha
             }
         };
-        console.log(newRegistro)
-        console.log(registro)
+
         setRegistros([newRegistro, ...registros])
     };
 
@@ -188,13 +186,13 @@ function Historia() {
         <>
             <Sidebar />
             {pacientes ? (
-                <div className="overflow-hidden rounded-lg shadow-md ml-10 mr-10 overflow-x:auto " style={{ marginLeft: '70px' }}>
+                <div className=" rounded px-8 pt-6 pb-8 m-10 flex flex-col my-2 rounded-lg" style={{ marginLeft: '80px' }}>
                     <div>
                         <br />
                         <h1 className="font-bold px-6 text-lg text-center">Información del paciente</h1>
                         <br />
                     </div>
-                    <table className="w-full border-collapse bg-white text-left text-sm text-gray-500 min-width: 100%">
+                    <table className="w-full border-collapse  bg-white text-left text-sm text-gray-500 min-width: 100%">
                         <tbody>
                             <tr>
                                 <td className="p-3 font-bold bg-gray-50 text-gray-900 text-center border border-gray-300" colSpan="2">Nombre</td>
@@ -242,7 +240,7 @@ function Historia() {
 
             <Register onSave={(registro) => {
                 crearRegistro(registro);
-                console.log(registro);
+
             }} />
 
             <div>

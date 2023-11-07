@@ -95,7 +95,6 @@ function Login() {
     if (foundUser) {
       login(foundUser);
       navigate('/');
-      console.log(foundUser);
     } else {
       setErrorMessage("Usuario o contraseña incorrectos"); // Mostrar mensaje de error
     }
